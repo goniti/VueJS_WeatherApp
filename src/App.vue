@@ -1,28 +1,24 @@
 <template>
   <div id="app">
-<!--    {{ data }}-->
-    <Header/>
-    <Main/>
+    <Header />
+    <Main />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import Main from "@/components/Main";
-console.log(process.env.VUE_APP_API_KEY)
+import Main from '@/components/Main'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Main
+    Main,
   },
-
 }
 </script>
 
 <style>
-
 #app {
   font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
