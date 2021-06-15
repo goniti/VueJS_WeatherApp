@@ -1,11 +1,11 @@
 <template>
   <header>
-    <h1 class="md-display-4">Weather App</h1>
+    <h1 class="title">Weather App</h1>
     <form v-on:submit.prevent="handleSubmit">
       <md-field>
         <label>Type here!</label>
         <md-input v-model="city" />
-        <span class="md-helper-text">City Name</span>
+        <span class="md-helper-text">Below is the weather forecast for the city of {{city}}</span>
       </md-field>
     </form>
   </header>
@@ -15,12 +15,15 @@ export default {
   name: 'Header',
 
   data: () => ({
-    city: null,
+    city: "Lyon",
     data: {},
     locations: {},
   }),
-
+  beforeMount() {
+    this.getData()
+  },
   methods: {
+
     handleSubmit() {
       this.getData()
     },
@@ -48,4 +51,8 @@ export default {
   },
 }
 </script>
-<style scoped></style>
+<style scoped>
+.title {
+  font-size: clamp(1rem, 13.5vw, 5rem);
+  }
+</style>

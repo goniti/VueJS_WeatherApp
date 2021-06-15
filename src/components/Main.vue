@@ -1,15 +1,20 @@
 <template>
   <main>
-    <span class="md-display-3">32&deg;</span>
-    <img src="http://openweathermap.org/img/wn/03d@4x.png" />
-    <p class="md-display-2">Clear</p>
-    <p class="md-display-1">A little cloud</p>
+    <CurrentWeatherCard />
+    <DailyWeatherCard/>
   </main>
 </template>
 
 <script>
+import CurrentWeatherCard from '@/components/CurrentWeatherCard'
+import DailyWeatherCard from '@/components/DailyWeatherCard'
+
 export default {
   name: 'Main',
+  components: {
+    CurrentWeatherCard,
+    DailyWeatherCard,
+  },
 }
 </script>
 
