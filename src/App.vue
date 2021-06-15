@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    {{ data }}
+<!--    {{ data }}-->
     <Header/>
     <Main/>
   </div>
@@ -18,21 +18,6 @@ export default {
     Main
   },
 
-  data() {
-    return {
-      data: {},
-    }
-  },
-  beforeMount() {
-    this.getName()
-  },
-  methods: {
-    async getName() {
-      const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-90&appid=${process.env.VUE_APP_API_KEY}`)
-      const data = await res.json()
-      this.data = data
-    },
-  },
 }
 </script>
 
