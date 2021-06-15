@@ -9,7 +9,6 @@
 <script>
 import Header from './components/Header.vue'
 import Main from "@/components/Main";
-
 console.log(process.env.VUE_APP_API_KEY)
 
 export default {
@@ -38,6 +37,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
