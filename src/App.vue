@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header title-element="Weather App"/>
     <Main />
   </div>
 </template>

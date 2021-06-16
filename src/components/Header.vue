@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1 class="title">Weather App</h1>
+    <h1 class="title">{{titleElement}}</h1>
     <form v-on:submit.prevent="handleSubmit">
       <md-field>
         <label>Type here!</label>
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: 'Header',
-
+  props:['titleElement'],
   data: () => ({
     city: "Lyon",
     data: {},
@@ -51,8 +51,9 @@ export default {
   },
 }
 </script>
+
 <style scoped>
 .title {
-  font-size: clamp(1rem, 13.5vw, 5rem);
+    font-size: clamp(1rem, 13.5vw, 5rem);
   }
 </style>
