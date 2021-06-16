@@ -2,15 +2,15 @@
   <div>
     <md-card class="card">
       <md-card-header >
-        <h2 class="md-title">Clear</h2>
-        <h3 class="md-subhead">A little cloud</h3>
+        <h2 class="md-title">{{ Main }}</h2>
+        <h3 class="md-subhead">{{ Description }}</h3>
         <md-card-media md-big >
-          <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="weather_icon" />
+          <img :src="`http://openweathermap.org/img/wn/${Icon}@2x.png`" alt="weather_icon" />
         </md-card-media >
       </md-card-header>
 
       <md-card-content>
-        <span class="md-display-3">32&deg;</span>
+        <span class="md-display-3">{{parseInt(Temp)}}&deg;</span>
       </md-card-content>
     </md-card>
   </div>
@@ -19,6 +19,12 @@
 <script>
 export default {
   name: 'CurrentWeatherCard',
+  props:{
+    Icon: String,
+    Temp: Number,
+    Description: String,
+    Main: String
+  },
 }
 </script>
 
