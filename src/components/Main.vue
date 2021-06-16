@@ -1,7 +1,12 @@
 <template>
-    <main>
-    <CurrentWeatherCard :icon="data.current.weather[0].icon" :description="data.current.weather[0].description" :main="data.current.weather[0].main" :temp="data.current.temp"/>
-    <DailyWeatherCard :daily="data.daily"/>
+  <main>
+    <CurrentWeatherCard
+      :icon="data.current.weather[0].icon"
+      :description="data.current.weather[0].description"
+      :main="data.current.weather[0].main"
+      :temp="data.current.temp"
+    />
+    <DailyWeatherCard :daily="data.daily" />
   </main>
 </template>
 
@@ -14,8 +19,8 @@ export default {
     CurrentWeatherCard,
     DailyWeatherCard,
   },
-  props:{
-    data: Object
+  props: {
+    data: Object,
   },
 }
 </script>

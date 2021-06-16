@@ -10,7 +10,7 @@
         </md-field>
       </form>
     </header>
-    <Main v-bind:data="this.data"/>
+    <Main v-bind:data="this.data" />
   </div>
 </template>
 
@@ -22,12 +22,12 @@ export default {
   components: {
     Main,
   },
-  data:()=> ({
-    data:{},
-    locations:{},
+  data: () => ({
+    data: {},
+    locations: {},
     city: 'Lyon',
     currentCity: 'Lyon',
-    titleApp: 'Weather App'
+    titleApp: 'Weather App',
   }),
   beforeMount() {
     this.getData()
@@ -35,23 +35,23 @@ export default {
   },
   methods: {
     getData() {
-      fetch(`${process.env.VUE_APP_URL_LOCATIONS}?q=${this.city},FR&appid=${process.env.VUE_APP_API_KEY}`).then(
-          async (res) => {
-            this.locations = await res.json()
-            this.getWeather()
-          },
+      fetch(`${process.env.VUE_APP_URL_LOCATIONS}?q=${this.city}&appid=${process.env.VUE_APP_API_KEY}`).then(
+        async (res) => {
+          this.locations = await res.json()
+          this.getWeather()
+        },
       )
     },
     getWeather() {
       fetch(
-          `${process.env.VUE_APP_URL_WEATHER}?lat=${this.locations[0].lat}&lon=${this.locations[0].lon}&exclude=minutely,alerts,hourly&units=metric&appid=${process.env.VUE_APP_API_KEY}`,
+        `${process.env.VUE_APP_URL_WEATHER}?lat=${this.locations[0].lat}&lon=${this.locations[0].lon}&exclude=minutely,alerts,hourly&units=metric&appid=${process.env.VUE_APP_API_KEY}`,
       )
-          .then(async (response) => {
-            this.data = await response.json()
-          })
-          .catch((error) => {
-            console.error('There was an error!', error)
-          })
+        .then(async (response) => {
+          this.data = await response.json()
+        })
+        .catch((error) => {
+          console.error('There was an error!', error)
+        })
     },
     handleSubmit(event) {
       event.preventDefault()
@@ -63,7 +63,7 @@ export default {
       this.currentCity = inputValue
       this.city = ''
     },
-  }
+  },
 }
 </script>
 
@@ -75,7 +75,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color:  rgba(0,0,0,0.54);
+  color: rgba(0, 0, 0, 0.54);
 }
 .title {
   font-size: clamp(1rem, 13.5vw, 5rem);
