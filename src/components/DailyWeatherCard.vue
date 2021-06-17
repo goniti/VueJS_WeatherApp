@@ -1,87 +1,19 @@
 <template>
   <div class="group_cards">
-    <md-card class="card card--centered">
+    <md-card class="card card--centered" v-for="(weather, index) in Daily" :key="index">
       <md-card-header>
         <md-card-media md-small>
-          <img :src="`http://openweathermap.org/img/wn/${Daily[0].weather[0].icon}@2x.png`" alt="People" />
+          <img :src="`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`" alt="People" />
         </md-card-media>
 
         <md-card-header-text>
-          <div class="md-title">{{ getDaily(Daily[0].dt) }}</div>
-          <div class="md-subhead">{{ Daily[0].weather[0].description }}</div>
+          <div class="md-title">{{ getDaily(weather.dt) }}</div>
+          <div class="md-subhead">{{ weather.weather[0].description }}</div>
         </md-card-header-text>
       </md-card-header>
 
       <md-card-content>
-        <span class="md-headline">{{ parseInt(Daily[0].temp.day) }}&deg;</span>
-      </md-card-content>
-    </md-card>
-
-    <md-card class="card card--centered">
-      <md-card-header>
-        <md-card-media md-small>
-          <img :src="`http://openweathermap.org/img/wn/${Daily[0].weather[0].icon}@2x.png`" alt="People" />
-        </md-card-media>
-
-        <md-card-header-text>
-          <div class="md-title">{{ DATE }}</div>
-          <div class="md-subhead">{{ Daily[1].weather[0].description }}</div>
-        </md-card-header-text>
-      </md-card-header>
-
-      <md-card-content>
-        <span class="md-headline">{{ parseInt(Daily[0].temp.day) }}&deg;</span>
-      </md-card-content>
-    </md-card>
-
-    <md-card class="card card--centered">
-      <md-card-header>
-        <md-card-media md-small>
-          <img :src="`http://openweathermap.org/img/wn/${Daily[0].weather[0].icon}@2x.png`" alt="People" />
-        </md-card-media>
-
-        <md-card-header-text>
-          <div class="md-title">{{ DATE }}</div>
-          <div class="md-subhead">{{ Daily[2].weather[0].description }}</div>
-        </md-card-header-text>
-      </md-card-header>
-
-      <md-card-content>
-        <span class="md-headline">{{ parseInt(Daily[0].temp.day) }}&deg;</span>
-      </md-card-content>
-    </md-card>
-
-    <md-card class="card card--centered">
-      <md-card-header>
-        <md-card-media md-small>
-          <img :src="`http://openweathermap.org/img/wn/${Daily[0].weather[0].icon}@2x.png`" alt="People" />
-        </md-card-media>
-
-        <md-card-header-text>
-          <div class="md-title">{{ DATE }}</div>
-          <div class="md-subhead">{{ Daily[3].weather[0].description }}</div>
-        </md-card-header-text>
-      </md-card-header>
-
-      <md-card-content>
-        <span class="md-headline">{{ parseInt(Daily[0].temp.day) }}&deg;</span>
-      </md-card-content>
-    </md-card>
-
-    <md-card class="card card--centered">
-      <md-card-header>
-        <md-card-media md-small>
-          <img :src="`http://openweathermap.org/img/wn/${Daily[0].weather[0].icon}@2x.png`" alt="People" />
-        </md-card-media>
-
-        <md-card-header-text>
-          <div class="md-title">{{ DATE }}</div>
-          <div class="md-subhead">{{ Daily[4].weather[0].description }}</div>
-        </md-card-header-text>
-      </md-card-header>
-
-      <md-card-content>
-        <span class="md-headline">{{ parseInt(Daily[0].temp.day) }}&deg;</span>
+        <span class="md-headline">{{ parseInt(weather.temp.day) }}&deg;</span>
       </md-card-content>
     </md-card>
   </div>
