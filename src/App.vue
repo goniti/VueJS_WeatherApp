@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <h1 class="title">Weather {{ currentCity }}</h1>
-      <beat-loader class="custom-class" color="#EC6E4C" :loading="loading" :size="15" :sizeUnit="rem"></beat-loader>
+      <beat-loader class="loader" :color="loaderColor" :loading="loading" :size="15" :sizeUnit="rem"></beat-loader>
       <form v-on:submit.prevent="handleSubmit">
         <md-field>
           <label>Type name of another city</label>
@@ -31,6 +31,7 @@ export default {
     city: 'Lyon',
     currentCity: 'Lyon',
     loading: false,
+    loaderColor: '#EC6E4C',
   }),
   beforeMount() {
     this.getData()
@@ -85,7 +86,7 @@ export default {
 .title {
   font-size: clamp(1rem, 13.5vw, 5rem);
 }
-.custom-class{
+.loader{
   text-align: center;
 }
 </style>
