@@ -6,7 +6,7 @@
       :main="getCurrentMain()"
       :temp="getCurrenttemp()"
     />
-    <DailyWeatherCard :data="data.daily" :limit="6" />
+    <DailyWeatherCard :data="data.daily" :limit="5" />
   </main>
 </template>
 

@@ -29,14 +29,14 @@ export default {
   name: 'DailyWeatherCard',
   methods: {
     getDaily: function (timestamp) {
-      let timestampConverted = new Date(timestamp)
-      const options = { weekday: 'long' }
+      let timestampConverted = new Date(timestamp * 1000)
+      const options = { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric', weekday: 'long' }
       return new Intl.DateTimeFormat('en-US', options).format(timestampConverted)
     },
   },
   computed: {
     newsLimited() {
-      return this.Data.slice(0, this.Limit)
+      return this.Data.slice(1, this.Limit +1)
     },
     cardSize() {
       return {
@@ -71,10 +71,10 @@ export default {
 
 @media (max-width: 1200px) {
   .card:not(:last-child) {
-    flex-basis: 50%;
+    flex-basis: 50% !important;
   }
   .card:last-child {
-    flex-basis: 100%;
+    flex-basis: 100% !important;
   }
 }
 @media (max-width: 700px) {
