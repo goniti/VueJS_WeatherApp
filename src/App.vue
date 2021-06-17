@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <header>
-      <h1 class="title">{{ titleApp }}</h1>
+      <h1 class="title">Weather {{ currentCity }}</h1>
+      <beat-loader class="custom-class" color="#EC6E4C" :loading="loading" :size="15" :sizeUnit="rem"></beat-loader>
       <form v-on:submit.prevent="handleSubmit">
         <md-field>
           <label>Type name of another city</label>
@@ -16,18 +17,20 @@
 
 <script>
 import Main from '@/components/Main'
+import { BeatLoader } from '@saeris/vue-spinners'
 
 export default {
   name: 'App',
   components: {
     Main,
+    BeatLoader,
   },
   data: () => ({
     data: {},
     locations: {},
     city: 'Lyon',
     currentCity: 'Lyon',
-    titleApp: 'Weather App',
+    loading: false,
   }),
   beforeMount() {
     this.getData()
@@ -43,11 +46,13 @@ export default {
       )
     },
     getWeather() {
+      this.loading = true
       fetch(
         `${process.env.VUE_APP_URL_WEATHER}?lat=${this.locations[0].lat}&lon=${this.locations[0].lon}&exclude=minutely,alerts,hourly&units=metric&appid=${process.env.VUE_APP_API_KEY}`,
       )
         .then(async (response) => {
           this.data = await response.json()
+          this.loading = false
         })
         .catch((error) => {
           console.error('There was an error!', error)
@@ -79,5 +84,8 @@ export default {
 }
 .title {
   font-size: clamp(1rem, 13.5vw, 5rem);
+}
+.custom-class{
+  text-align: center;
 }
 </style>

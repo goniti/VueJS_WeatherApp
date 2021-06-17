@@ -7,7 +7,7 @@
         </md-card-media>
 
         <md-card-header-text>
-          <div class="md-title">Monday</div>
+          <div class="md-title">{{ getDaily(Daily[0].dt) }}</div>
           <div class="md-subhead">{{ Daily[0].weather[0].description }}</div>
         </md-card-header-text>
       </md-card-header>
@@ -24,7 +24,7 @@
         </md-card-media>
 
         <md-card-header-text>
-          <div class="md-title">Tuesday</div>
+          <div class="md-title">{{ DATE }}</div>
           <div class="md-subhead">{{ Daily[1].weather[0].description }}</div>
         </md-card-header-text>
       </md-card-header>
@@ -41,7 +41,7 @@
         </md-card-media>
 
         <md-card-header-text>
-          <div class="md-title">Wednesday</div>
+          <div class="md-title">{{ DATE }}</div>
           <div class="md-subhead">{{ Daily[2].weather[0].description }}</div>
         </md-card-header-text>
       </md-card-header>
@@ -58,7 +58,7 @@
         </md-card-media>
 
         <md-card-header-text>
-          <div class="md-title">Thursday</div>
+          <div class="md-title">{{ DATE }}</div>
           <div class="md-subhead">{{ Daily[3].weather[0].description }}</div>
         </md-card-header-text>
       </md-card-header>
@@ -75,7 +75,7 @@
         </md-card-media>
 
         <md-card-header-text>
-          <div class="md-title">Friday</div>
+          <div class="md-title">{{ DATE }}</div>
           <div class="md-subhead">{{ Daily[4].weather[0].description }}</div>
         </md-card-header-text>
       </md-card-header>
@@ -90,6 +90,13 @@
 <script>
 export default {
   name: 'DailyWeatherCard',
+  methods: {
+    getDaily: function (timestamp) {
+      let timestampConverted = new Date(timestamp)
+      const options = { weekday: 'long' }
+      return new Intl.DateTimeFormat('en-US', options).format(timestampConverted)
+    },
+  },
   props: {
     Daily: Array,
   },
