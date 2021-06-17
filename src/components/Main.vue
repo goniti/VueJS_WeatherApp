@@ -4,7 +4,7 @@
       :icon="getCurrentIcon()"
       :description="getCurrentDescription()"
       :main="getCurrentMain()"
-      :temp="getCurrenttemp()"
+      :temp="getCurrentTemp()"
     />
     <DailyWeatherCard :data="data.daily" :limit="5" />
   </main>
@@ -29,7 +29,7 @@ export default {
     getCurrentMain() {
       return this.data.current.weather[0].main
     },
-    getCurrenttemp() {
+    getCurrentTemp() {
       return this.data.current.temp
     },
   },
