@@ -84,7 +84,7 @@ export default {
   color: rgba(0, 0, 0, 0.54);
 }
 .title {
-  font-size: clamp(1rem, 13.5vw, 5rem);
+  font-size: clamp(2rem, 6vw, 8rem);
 }
 .loader{
   text-align: center;
