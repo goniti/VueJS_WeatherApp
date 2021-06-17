@@ -1,12 +1,12 @@
 <template>
   <main>
     <CurrentWeatherCard
-      :icon="data.current.weather[0].icon"
-      :description="data.current.weather[0].description"
-      :main="data.current.weather[0].main"
-      :temp="data.current.temp"
+      :icon="getCurrentIcon()"
+      :description="getCurrentDescription()"
+      :main="getCurrentMain()"
+      :temp="getCurrenttemp()"
     />
-    <DailyWeatherCard :daily="data.daily" />
+    <DailyWeatherCard :data="data.daily" :limit="6" />
   </main>
 </template>
 
@@ -18,6 +18,20 @@ export default {
   components: {
     CurrentWeatherCard,
     DailyWeatherCard,
+  },
+  methods: {
+    getCurrentIcon() {
+      return this.data.current.weather[0].icon
+    },
+    getCurrentDescription() {
+      return this.data.current.weather[0].description
+    },
+    getCurrentMain() {
+      return this.data.current.weather[0].main
+    },
+    getCurrenttemp() {
+      return this.data.current.temp
+    },
   },
   props: {
     data: Object,

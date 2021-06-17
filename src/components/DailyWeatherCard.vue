@@ -1,6 +1,11 @@
 <template>
   <div class="group_cards">
-    <md-card class="card card--centered" v-for="(weather, index) in Daily" :key="index">
+    <md-card
+      :style="cardSize"
+      class="card card--centered md-elevation-3"
+      v-for="(weather, key) in newsLimited"
+      :key="key"
+    >
       <md-card-header>
         <md-card-media md-small>
           <img :src="`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`" alt="People" />
@@ -29,8 +34,19 @@ export default {
       return new Intl.DateTimeFormat('en-US', options).format(timestampConverted)
     },
   },
+  computed: {
+    newsLimited() {
+      return this.Data.slice(0, this.Limit)
+    },
+    cardSize() {
+      return {
+        'flex-basis': `calc((100% - ${this.Limit}rem) / ${this.Limit} )`,
+      }
+    },
+  },
   props: {
-    Daily: Array,
+    Data: Array,
+    Limit: Number,
   },
 }
 </script>
@@ -44,7 +60,7 @@ export default {
   margin-top: 1rem;
 }
 .card {
-  flex-basis: calc((100% - 5rem) / 5);
+  background-color: rgb(230, 226, 225) !important;
 }
 .card--centered {
   display: flex;

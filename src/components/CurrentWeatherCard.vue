@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-card class="card">
+    <md-card class="card md-elevation-3">
       <md-card-header>
         <h2 class="md-title">{{ Main }}</h2>
         <h3 class="md-subhead">{{ Description }}</h3>
@@ -35,5 +35,6 @@ export default {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-color: rgb(230, 226, 225) !important;
 }
 </style>
